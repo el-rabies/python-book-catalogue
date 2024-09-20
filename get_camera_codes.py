@@ -1,4 +1,5 @@
 import cv2
+from PIL import Image
 from read_barcode import BarcodeReader
 
 cv2.namedWindow("preview")
@@ -10,9 +11,13 @@ else:
     rval = False
 
 while rval:
+    #Display What the camera is seeing
     cv2.imshow("preview", frame)
-    BarcodeReader(frame)
-    #find a way to put this into a barcode reader
+
+    #Convert the cv2-Image "frame" to a PIL image and Pass to Barcode reader
+    PILimg = Image.fromarray(frame)
+    BarcodeList = BarcodeReader(PILimg)
+    
     rval, frame = vc.read()
     key = cv2.waitKey(20)
     if key == 27: # exit on ESC
