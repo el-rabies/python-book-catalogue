@@ -35,5 +35,5 @@ def BarcodeReader(image, isPath=False, isTest=False):
 
 if __name__ == "__main__":
 # Take the image from user
-	image="/Users/tiger33e/Documents/GitHub/automatic-library/barcode_1.png"
+	image="./barcode_1.png"
 	BarcodeReader(image, True, True)
