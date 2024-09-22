@@ -1,7 +1,7 @@
 # Importing library
 import cv2
 from PIL import Image
-from pyzbar.pyzbar import decode, ZBarSymbol
+from pyzbar.pyzbar import decode
 import numpy as np
 
 # Make one method to decode the barcode 
