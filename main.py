@@ -53,12 +53,16 @@ for newfile in newFileNames:
                 pageCount = book["items"][0]["volumeInfo"]["pageCount"]
             except Exception as err:
                 pageCount = "Not Found"
-
+            try:
+                bookIsbn = book["items"][0]["volumeInfo"]["industryIdentifiers"][0]["identifier"]
+            except Exception as err:
+                bookIsbn = "Not Found"
             bookData = {'Title':[title], 
                         'Author':[author], 
                         'Publishing Date':[publishedDate],
                         'Genre':[genre],
-                        'Page Count':[pageCount]
+                        'Page Count':[pageCount],
+                        'ISBN':[bookIsbn]
                     }
             
             UpdateLibFile(bookData)
