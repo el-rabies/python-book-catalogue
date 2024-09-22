@@ -5,15 +5,15 @@ import os
 def MakeBookJson(isbn):
     url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=AIzaSyAq0l7E8PeVHT1nc-yB8SMG_Vrzv6V-IQI"
     urllib.request.urlretrieve(url,"./library/tmp.json")
-
     with open("./library/tmp.json", "r") as readFile:
         book = json.load(readFile)
         if book["totalItems"] != 0:
             title = ''.join(char for char in (book["items"][0]["volumeInfo"]["title"]) if char.isalnum())
             os.rename("./library/tmp.json", "./library/" + title + ".json")
+            return(title)
         else:
             os.remove("./library/tmp.json")
-    return()
+
 
 #testing
 if __name__ == "__main__":
