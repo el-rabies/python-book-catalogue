@@ -3,7 +3,7 @@ import json
 import os
 
 def MakeBookJson(isbn):
-    url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=AIzaSyAq0l7E8PeVHT1nc-yB8SMG_Vrzv6V-IQI"
+    url = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&key=<your key>"
     urllib.request.urlretrieve(url,"./library/tmp.json")
     with open("./library/tmp.json", "r") as readFile:
         book = json.load(readFile)
